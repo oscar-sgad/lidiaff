@@ -9,5 +9,10 @@ pipeline {
 
       }
     }
+    stage('Deploy') {
+      steps {
+        deploy adapters: [tomcat7(credentialsId: 'b9767272-39bc-4147-916b-5f3ba58c2042', path: '', url: 'http://localhost:8082/')], contextPath: 'web_curso', war: 'target\\ *.war'
+        }
+      }
   }
 }
