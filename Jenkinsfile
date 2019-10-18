@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Compilar') {
       steps {
-        withMaven(globalMavenSettingsFilePath: 'C:\\Users\\alumno.36\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml', jdk: 'JDK', maven: 'MAVEN', mavenSettingsFilePath: 'C:\\Users\\alumno.36\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml') {
+        withMaven(globalMavenSettingsFilePath: 'C:\\Users\\alumno.40\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml', jdk: 'JDK', maven: 'MAVEN', mavenSettingsFilePath: 'C:\\Users\\alumno.40\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml') {
           bat 'mvn clean install -DskipTests'
         }
 
@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        withMaven(jdk: 'JDK', maven: 'MAVEN', globalMavenSettingsFilePath: 'C:\\Users\\alumno.36\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml', mavenSettingsFilePath: 'C:\\Users\\alumno.36\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml') {
+        withMaven(jdk: 'JDK', maven: 'MAVEN', globalMavenSettingsFilePath: 'C:\\Users\\alumno.40\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml', mavenSettingsFilePath: 'C:\\Users\\alumno.40\\Desktop\\Jenkins - Alumno\\maven\\conf\\settings.xml') {
           bat 'mvn test cobertura:cobertura -Dmaven.test.failure.ignore=true'
         }
 
